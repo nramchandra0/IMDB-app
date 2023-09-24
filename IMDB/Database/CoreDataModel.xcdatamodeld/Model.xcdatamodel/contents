@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21513" systemVersion="21G419" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Movie" representedClassName=".Movie" syncable="YES">
+        <attribute name="movieIdentifier" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="posterPath" optional="YES" attributeType="String"/>
+        <attribute name="rating" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="playlist" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Playlist" inverseName="movies" inverseEntity="Playlist"/>
+    </entity>
+    <entity name="Playlist" representedClassName=".Playlist" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="movies" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Movie" inverseName="playlist" inverseEntity="Movie"/>
+    </entity>
+    <entity name="User" representedClassName=".User" syncable="YES">
+        <attribute name="userName" optional="YES" attributeType="String"/>
+        <relationship name="playlists" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Playlist"/>
+    </entity>
+</model>
